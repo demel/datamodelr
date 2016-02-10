@@ -68,7 +68,7 @@ server = function(input, output, session){
     content = function(file) {
       dm <- dm_read_yaml(text = input$ace)
       graph <- dm_create_graph(dm, rankdir = input$rankdir, view_type = input$view_type)
-      svg <- DiagrammeRsvg::exportSVG(DiagrammeR::grViz(graph$dot_code) )
+      svg <- DiagrammeRsvg::export_svg(DiagrammeR::grViz(graph$dot_code) )
       writeChar(object = svg, file, eos = NULL)
     },
     contentType = "image/svg+xml"
